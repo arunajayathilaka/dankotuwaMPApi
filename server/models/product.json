@@ -1,0 +1,85 @@
+{
+  "name": "product",
+  "plural": "products",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "product_code": {
+      "type": "string",
+      "required": true
+    },
+    "product_title": {
+      "type": "string",
+      "required": true
+    },
+    "product_desc": {
+      "type": "string",
+      "required": true
+    },
+    "product_price": {
+      "type": "number",
+      "required": true
+    },
+    "product_dis_price": {
+      "type": "number",
+      "required": true
+    },
+    "units_in_stock": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "units_in_order": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "created": {
+      "type": "date",
+      "required": true
+    },
+    "updated": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "orderDetails": {
+      "type": "hasMany",
+      "model": "order_detail",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

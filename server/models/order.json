@@ -1,0 +1,90 @@
+{
+  "name": "order",
+  "plural": "orders",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "order_date": {
+      "type": "date",
+      "required": true
+    },
+    "required_date": {
+      "type": "date",
+      "required": true
+    },
+    "shipped_date": {
+      "type": "date",
+      "required": true
+    },
+    "ship_via": {
+      "type": "string",
+      "required": true
+    },
+    "ship_name": {
+      "type": "string",
+      "required": true
+    },
+    "ship_address": {
+      "type": "string",
+      "required": true
+    },
+    "ship_city": {
+      "type": "string",
+      "required": true
+    },
+    "ship_region": {
+      "type": "string",
+      "required": true
+    },
+    "ship_postalcode": {
+      "type": "number",
+      "required": true
+    },
+    "created": {
+      "type": "date",
+      "required": true
+    },
+    "updated": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "orderDetails": {
+      "type": "hasMany",
+      "model": "order_detail",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "AccessToken": {
+    "dataSource": "dankotuwaMP",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "dankotuwaMP",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "dankotuwaMP",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "dankotuwaMP",
+    "public": false
+  },
+  "product": {
+    "dataSource": "dankotuwaMP",
+    "public": true
+  },
+  "category": {
+    "dataSource": "dankotuwaMP",
+    "public": true
+  },
+  "order": {
+    "dataSource": "dankotuwaMP",
+    "public": true
+  },
+  "order_detail": {
+    "dataSource": "dankotuwaMP",
+    "public": true
+  },
+  "user": {
+    "dataSource": "dankotuwaMP",
+    "public": true
+  }
+}
